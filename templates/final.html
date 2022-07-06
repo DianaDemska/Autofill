@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Auto Fill</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.min.css" />
+</head>
+
+<body>
+    <section>
+        <div class="hero-body">
+            <div class="container has-text-centered">
+                <h1 class="title">
+                    Flask Login Example
+                </h1>
+                <h2 class="subtitle">
+                    Easy authentication and authorization in Flask.
+                </h2>
+                <div class="column is-4 is-offset-4">
+                    <h3 class="title">Введіть дані</h3>
+                    <div class="box">
+                        {% with messages = get_flashed_messages() %}
+                        {% if messages %}
+                        <div class="notification is-danger">
+                            {{ messages[0] }}.</a>.
+                        </div>
+                        {% endif %}
+                        {% endwith %}
+                        <h1>Done!</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>

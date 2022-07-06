@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Auto Fill</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.min.css" />
+</head>
+
+<body>
+    <section>
+        <div class="hero-body">
+            <div class="container has-text-centered">
+                <h1 class="title">
+                    Forms
+                </h1>
+                <!--<h2 class="subtitle">
+                    Easy authentication and authorization in Flask.
+                </h2>
+            -->
+                <div class="column is-4 is-offset-4">
+                    <h3 class="title">Введіть дані</h3>
+                    <div class="box">
+                        {% with messages = get_flashed_messages() %}
+                        {% if messages %}
+                        <div class="notification is-danger">
+                            {{ messages[0] }}.</a>.
+                        </div>
+                        {% endif %}
+                        {% endwith %}
+                        <form method="POST" action="/">
+                            <div class="field">
+                                <div class="control">
+                                    <select class="input is-large" name="file">
+                                        <option value="Згода на тимчасові поїздки за кордон">Згода на
+                                            тимчасові
+                                            поїздки за кордон</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <h3 class="title">Батько</h3>
+                            <div class="field">
+                                <div class="control">
+                                    <input class="input is-large" type="text" name="name_N" id="name_N"
+                                        placeholder="Ім'я" autofocus="">
+                                </div>
+                            </div>
+
+
+                            <div class="field">
+                                <div class="control">
+                                    <input class="input is-large" type="text" name="surname_N" placeholder="Прізвище">
+                                </div>
+                            </div>
+
+                            <div class="field">
+                                <div class="control">
+                                    <input class="input is-large" type="text" name="fatherName_N"
+                                        placeholder="По-батькові">
+                                </div>
+                            </div>
+
+                            <div class="field">
+                                <div class="control">
+                                    <input class="input is-large" type="text" name="name_R"
+                                        placeholder="Ім'я в родовому відмінку">
+                                </div>
+                            </div>
+
+
+                            <div class="field">
+                                <div class="control">
+                                    <input class="input is-large" type="text" name="surname_R"
+                                        placeholder="Прізвище в родовому відмінку">
+                                </div>
+                            </div>
+
+                            <div class="field">
+                                <div class="control">
+                                    <input class="input is-large" type="text" name="fatherName_R"
+                                        placeholder="По-батькові в родовому відмінку">
+                                </div>
+                            </div>
+
+                            <div class="field">
+                                <div class="control">
+                                    <input class="input is-large" type="date" name="birthday_1">
+                                </div>
+                            </div>
+
+                            <div class="field">
+                                <div class="control">
+                                    <input class="input is-large" type="text" name="passNum_1"
+                                        placeholder="Номер паспорта">
+                                </div>
+                            </div>
+
+                            <div class="field">
+                                <div class="control">
+                                    <input class="input is-large" type="text" name="institution_1"
+                                        placeholder="Ким виданий">
+                                </div>
+                            </div>
+                            <div class="field">
+                                <div class="control">
+                                    <input class="input is-large" type="date" name="date_1">
+                                </div>
+                            </div>
+
+                            <div class="field">
+                                <div class="control">
+                                    <input class="input is-large" type="text" name="origin_1"
+                                        placeholder="Де зареєстрований">
+                                </div>
+                            </div>
+
+                            <!--------------------------------------------------------------------------->
+                            <h3 class="title">Матір</h3>
+                            <div class="field">
+                                <div class="control">
+                                    <input class="input is-large" type="text" name="name_N2" placeholder="Ім'я">
+                                </div>
+                            </div>
+
+
+                            <div class="field">
+                                <div class="control">
+                                    <input class="input is-large" type="text" name="surname_N2" placeholder="Прізвище">
+                                </div>
+                            </div>
+
+                            <div class="field">
+                                <div class="control">
+                                    <input class="input is-large" type="text" name="fatherName_N2"
+                                        placeholder="По-батькові">
+                                </div>
+                            </div>
+
+                            <div class="field">
+                                <div class="control">
+                                    <input class="input is-large" type="text" name="name_R2"
+                                        placeholder="Ім'я в родовому відмінку">
+                                </div>
+                            </div>
+
+
+                            <div class="field">
+                                <div class="control">
+                                    <input class="input is-large" type="text" name="surname_R2"
+                                        placeholder="Прізвище в родовому відмінку">
+                                </div>
+                            </div>
+
+                            <div class="field">
+                                <div class="control">
+                                    <input class="input is-large" type="text" name="fatherName_R2"
+                                        placeholder="По-батькові в родовому відмінку">
+                                </div>
+                            </div>
+
+                            <div class="field">
+                                <div class="control">
+                                    <input class="input is-large" type="date" name="birthday_2">
+                                </div>
+                            </div>
+
+                            <div class="field">
+                                <div class="control">
+                                    <input class="input is-large" type="text" name="passNum_2"
+                                        placeholder="Номер паспорта">
+                                </div>
+                            </div>
+
+                            <div class="field">
+                                <div class="control">
+                                    <input class="input is-large" type="text" name="institution_2"
+                                        placeholder="Ким виданий">
+                                </div>
+                            </div>
+                            <div class="field">
+                                <div class="control">
+                                    <input class="input is-large" type="date" name="date_2">
+                                </div>
+                            </div>
+
+                            <div class="field">
+                                <div class="control">
+                                    <input class="input is-large" type="text" name="origin_2"
+                                        placeholder="Де зареєстрований">
+                                </div>
+                            </div>
+
+                            <!--------------------------------------------------------------------------->
+                            <h3 class="title">Перша дитина</h3>
+                            <div class="field">
+                                <div class="control">
+                                    <input class="input is-large" type="text" name="kidname_R"
+                                        placeholder="Ім'я в родовому відмінку">
+                                </div>
+                            </div>
+
+
+                            <div class="field">
+                                <div class="control">
+                                    <input class="input is-large" type="text" name="kidsurname_R"
+                                        placeholder="Прізвище в родовому відмінку">
+                                </div>
+                            </div>
+
+                            <div class="field">
+                                <div class="control">
+                                    <input class="input is-large" type="text" name="kidfatherName_R"
+                                        placeholder="По-батькові в родовому відмінку">
+                                </div>
+                            </div>
+
+                            <div class="field">
+                                <div class="control">
+                                    <input class="input is-large" type="date" name="kidbirthday_1">
+                                </div>
+                            </div>
+
+                            <div class="field">
+                                <div class="control">
+                                    <input class="input is-large" type="text" name="kidorigin_1"
+                                        placeholder="Де зареєстрований">
+                                </div>
+                            </div>
+
+                            <!--------------------------------------------------------------------------->
+                            <h3 class="title">Друга дитина</h3>
+                            <div class="field">
+                                <div class="control">
+                                    <input class="input is-large" type="text" name="kidname_R2"
+                                        placeholder="Ім'я в родовому відмінку">
+                                </div>
+                            </div>
+
+
+                            <div class="field">
+                                <div class="control">
+                                    <input class="input is-large" type="text" name="kidsurname_R2"
+                                        placeholder="Прізвище в родовому відмінку">
+                                </div>
+                            </div>
+
+                            <div class="field">
+                                <div class="control">
+                                    <input class="input is-large" type="text" name="kidfatherName_R2"
+                                        placeholder="По-батькові в родовому відмінку">
+                                </div>
+                            </div>
+
+                            <div class="field">
+                                <div class="control">
+                                    <input class="input is-large" type="date" name="kidbirthday_2">
+                                </div>
+                            </div>
+                            <div class="field">
+                                <div class="control">
+                                    <input class="input is-large" type="text" name="kidorigin_2"
+                                        placeholder="Де зареєстрований">
+                                </div>
+                            </div>
+
+                            <!--------------------------------------------------------------------------->
+                            <h3 class="title">Людина, що супроводжуватиме</h3>
+                            <div class="field">
+                                <div class="control">
+                                    <input class="input is-large" type="text" name="takername_R"
+                                        placeholder="Ім'я в родовому відмінку">
+                                </div>
+                            </div>
+
+
+                            <div class="field">
+                                <div class="control">
+                                    <input class="input is-large" type="text" name="takersurname_R"
+                                        placeholder="Прізвище в родовому відмінку">
+                                </div>
+                            </div>
+
+                            <div class="field">
+                                <div class="control">
+                                    <input class="input is-large" type="text" name="takerfatherName_R"
+                                        placeholder="По-батькові в родовому відмінку">
+                                </div>
+                            </div>
+
+                            <div class="field">
+                                <div class="control">
+                                    <input class="input is-large" type="date" name="takerbirthday">
+                                </div>
+                            </div>
+
+
+
+                            <!--------------------------------------------------------------------------->
+                            <h3 class="title">Період подорожі. Починаючи з:</h3>
+                            <div class="field">
+                                <div class="control">
+                                    <input class="input is-large" type="date" name="duration_1">
+                                </div>
+                            </div>
+                            <h3 class="title">Закінчуючи до:</р>
+                                <div class="field">
+                                    <div class="control">
+                                        <input class="input is-large" type="date" name="duration_2">
+                                    </div>
+                                </div>
+
+                                <!--------------------------------------------------------------------------->
+                                <h3 class="title">Дата договору</h3>
+                                <div class="field">
+                                    <div class="control">
+                                        <input class="input is-large" type="date" name="time_1">
+                                    </div>
+                                </div>
+                                <div class="field">
+                                    <div class="control">
+                                        <input class="input is-large" type="text" name="time_2"
+                                            placeholder="Дата словами в родовому відмінку">
+                                    </div>
+                                </div>
+                                <button class="button is-block is-info is-large is-fullwidth">Надіслати</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
