@@ -1,4 +1,3 @@
-from unicodedata import name
 from flask import Flask, render_template, url_for, redirect, request, flash
 from multiprocessing import context
 import pandas as pd
