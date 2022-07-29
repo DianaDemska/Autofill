@@ -14,13 +14,11 @@
         <div class="hero-body">
             <div class="container has-text-centered">
                 <h1 class="title">
-                    Flask Login Example
+                    Генеральне Доручення Авто
                 </h1>
-                <h2 class="subtitle">
-                    Easy authentication and authorization in Flask.
-                </h2>
+
                 <div class="column is-4 is-offset-4">
-                    <h3 class="title">Введіть дані</h3>
+                    <h3 class="title"> Вид ТЗ</h3>
                     <div class="box">
                         {% with messages = get_flashed_messages() %}
                         {% if messages %}
@@ -29,7 +27,11 @@
                         </div>
                         {% endif %}
                         {% endwith %}
-                        <h1>Done!</h1>
+                        <h1>ГОТОВО</h1>
+                        <div class="field">
+                            <a href="{{ url_for('start') }}"
+                                class="button is-block is-info is-large is-fullwidth">Готово</a>
+                        </div>
                     </div>
                 </div>
             </div>

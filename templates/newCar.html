@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Auto Fill</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.min.css" />
+    <script src="/static/js/script.js"></script>
+</head>
+
+<body>
+    <section>
+        <div class="hero-body">
+            <div class="container has-text-centered">
+                <h1 class="title">
+                    ГЕНЕРАЛЬНЕ АВТО
+                </h1>
+                <!--<h2 class="subtitle">
+                    Easy authentication and authorization in Flask.
+                </h2>
+            -->
+                <div class="column is-6 is-offset-3">
+                    <h3 class="title">Введіть дані</h3>
+                    <div class="box">
+                        {% with messages = get_flashed_messages() %}
+                        {% if messages %}
+                        <div class="notification is-danger">
+                            {{ messages[0] }}.</a>.
+                        </div>
+                        {% endif %}
+                        {% endwith %}
+                        <form method="POST" action="/newCar">
+                            <div class="field">
+                                <div class="control">
+                                    <select class="input is-large" name="file">
+                                        <option value="Генеральне авто">Зразок нове генеральне авто
+                                        </option>
+                                        <option value="Керування авто">Зразок нове керування авто
+                                        </option>
+                                    </select>
+                                </div>
+                            </div>
+                            <h3 class="title">Власник Авто</h3>
+                            <div class="field">
+                                <div class="subtitle is-centered">
+                                    <label class="radio">
+                                        <input type="radio" name="gender_1" value="m" checked>
+                                        Чоловік
+                                    </label>
+                                    <label class="radio">
+                                        <input type="radio" name="gender_1" value="f">
+                                        Жінка
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="field">
+                                <div class="control">
+                                    <input class="input is-large" type="text" name="surname_N1" id="surname_1N"
+                                        onkeyup='myfunction(this.id)' placeholder="Прізвище" autofocus="">
+                                </div>
+                            </div>
+
+                            <div class="field">
+                                <div class="control">
+                                    <input class="input is-large" type="text" name="name_N1" id="name_1N"
+                                        onkeyup='myfunction(this.id)' placeholder="Ім'я">
+                                </div>
+                            </div>
+
+                            <div class="field">
+                                <div class="control">
+                                    <input class="input is-large" type="text" name="fatherName_N1" id="fatherName_1N"
+                                        onkeyup='myfunction(this.id)' placeholder="По-батькові">
+                                </div>
+                            </div>
+
+                            <div class="field">
+                                <div class="control">
+                                    <input class="input is-large" type="text" name="surname_O1" id="surname_1O"
+                                        placeholder="Прізвище в орудному відмінку">
+
+                                </div>
+                            </div>
+
+                            <div class="field">
+                                <div class="control">
+                                    <input class="input is-large" type="text" name="name_O1" id="name_1O"
+                                        placeholder="Ім'я в орудному відмінку">
+                                </div>
+                            </div>
+
+                            <div class="field">
+                                <div class="control">
+                                    <input class="input is-large" type="text" name="fatherName_O1" id="fatherName_1O"
+                                        placeholder="По-батькові в орудному відмінку">
+                                </div>
+                            </div>
+
+                            <div class="field">
+                                <div><label class="subtitle">День народження</label></div>
+                                <div class="select is-rounded">
+                                    <select name="birthday_day1">
+                                        {% for i in range(1, 32) %}
+                                        {%if i in smallNumbers %}
+                                        <option value="0{{ i }}">0{{ i }}</option>
+                                        {% else %}
+                                        <option value="{{ i }}">{{ i }}</option>
+                                        {% endif %}
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                                <div class="select is-rounded">
+                                    <select name="birthday_month1">
+                                        {% for i in months %}
+                                        <option value="{{ i }}">{{ i }}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                                <div class="select is-rounded">
+                                    <select name="birthday_year1">
+                                        {% for i in range(1940, 2025) %}
+                                        <option value="{{ i }}">{{ i }}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="field">
+                                <div class="control">
+                                    <input class="input is-large" type="text" name="passNum_1"
+                                        placeholder="Номер паспорта">
+                                </div>
+                            </div>
+
+                            <div class="field">
+                                <div class="control">
+                                    <input class="input is-large" type="text" name="institution_1"
+                                        placeholder="Ким виданий">
+                                </div>
+                            </div>
+
+                            <div class="field">
+                                <div><label class="subtitle">Дата видачі</label></div>
+                                <div class="select is-rounded">
+                                    <select name="passDate_day1">
+                                        {% for i in range(1, 32) %}
+                                        {%if i in smallNumbers %}
+                                        <option value="0{{ i }}">0{{ i }}</option>
+                                        {% else %}
+                                        <option value="{{ i }}">{{ i }}</option>
+                                        {% endif %}
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                                <div class="select is-rounded">
+                                    <select name="passDate_month1">
+                                        {% for i in months %}
+                                        <option value="{{ i }}">{{ i }}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                                <div class="select is-rounded">
+                                    <select name="passDate_year1">
+                                        {% for i in range(1991, 2030) %}
+                                        <option value="{{ i }}">{{ i }}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="field">
+                                <div class="control">
+                                    <input class="input is-large" type="text" name="origin_1"
+                                        placeholder="Де зареєстрований">
+                                </div>
+                            </div>
+
+                            <div class="field">
+                                <div class="control">
+                                    <input class="input is-large" type="text" name="identity_0_1" id="identity_1_0"
+                                        placeholder="Ідентифікаційний Номер">
+                                </div>
+                            </div>
+
+                            <!--------------------------------------------------------------------------->
+                            <h3 class="title">Кому Довіряють</h3>
+                            <div class="field">
+                                <div class="subtitle is-centered">
+                                    <label class="radio">
+                                        <input type="radio" name="gender_2" value="m" checked>
+                                        Чоловік
+                                    </label>
+                                    <label class="radio">
+                                        <input type="radio" name="gender_2" value="f">
+                                        Жінка
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="field">
+                                <div class="control">
+                                    <input class="input is-large" type="text" name="surname_Z2" id="surname_2Z"
+                                        placeholder="Прізвище в знахідному відмінку">
+                                </div>
+                            </div>
+
+                            <div class="field">
+                                <div class="control">
+                                    <input class="input is-large" type="text" name="name_Z2" id="name_2Z"
+                                        placeholder="Ім'я в знахідному відмінку">
+                                </div>
+                            </div>
+
+                            <div class="field">
+                                <div class="control">
+                                    <input class="input is-large" type="text" name="fatherName_Z2" id="fatherName_2Z"
+                                        placeholder="По-батькові в знахідному відмінку">
+                                </div>
+                            </div>
+
+                            <div class="field">
+                                <div><label class="subtitle">День народження</label></div>
+                                <div class="select is-rounded">
+                                    <select name="birthday_day2">
+                                        {% for i in range(1, 32) %}
+                                        {%if i in smallNumbers %}
+                                        <option value="0{{ i }}">0{{ i }}</option>
+                                        {% else %}
+                                        <option value="{{ i }}">{{ i }}</option>
+                                        {% endif %}
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                                <div class="select is-rounded">
+                                    <select name="birthday_month2">
+                                        {% for i in months %}
+                                        <option value="{{ i }}">{{ i }}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                                <div class="select is-rounded">
+                                    <select name="birthday_year2">
+                                        {% for i in range(1940, 2025) %}
+                                        <option value="{{ i }}">{{ i }}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="field">
+                                <div class="control">
+                                    <input class="input is-large" type="text" name="origin_2"
+                                        placeholder="Де зареєстрований">
+                                </div>
+                            </div>
+
+                            <h3 class="title">Кому Довіряють 2</h3>
+
+                            <div class="field">
+                                <div class="subtitle is-centered">
+                                    <label class="radio">
+                                        <input type="radio" name="human_3" value="a">
+                                        Присутній
+                                    </label>
+                                    <label class="radio">
+                                        <input type="radio" name="human_3" value="b" checked>
+                                        Відсутній
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="field">
+                                <div class="subtitle is-centered">
+                                    <label class="radio">
+                                        <input type="radio" name="gender_3" value="m" checked>
+                                        Чоловік
+                                    </label>
+                                    <label class="radio">
+                                        <input type="radio" name="gender_3" value="f">
+                                        Жінка
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="field">
+                                <div class="control">
+                                    <input class="input is-large" type="text" name="surname_Z3" id="surname_3Z"
+                                        placeholder="Прізвище в знахідному відмінку">
+                                </div>
+                            </div>
+
+                            <div class="field">
+                                <div class="control">
+                                    <input class="input is-large" type="text" name="name_Z3" id="name_3Z"
+                                        placeholder="Ім'я в знахідному відмінку">
+                                </div>
+                            </div>
+
+                            <div class="field">
+                                <div class="control">
+                                    <input class="input is-large" type="text" name="fatherName_Z3" id="fatherName_3Z"
+                                        placeholder="По-батькові в знахідному відмінку">
+                                </div>
+                            </div>
+
+                            <div class="field">
+                                <div><label class="subtitle">День народження</label></div>
+                                <div class="select is-rounded">
+                                    <select name="birthday_day3">
+                                        {% for i in range(1, 32) %}
+                                        {%if i in smallNumbers %}
+                                        <option value="0{{ i }}">0{{ i }}</option>
+                                        {% else %}
+                                        <option value="{{ i }}">{{ i }}</option>
+                                        {% endif %}
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                                <div class="select is-rounded">
+                                    <select name="birthday_month3">
+                                        {% for i in months %}
+                                        <option value="{{ i }}">{{ i }}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                                <div class="select is-rounded">
+                                    <select name="birthday_year3">
+                                        {% for i in range(1940, 2025) %}
+                                        <option value="{{ i }}">{{ i }}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="field">
+                                <div class="control">
+                                    <input class="input is-large" type="text" name="origin_3"
+                                        placeholder="Де зареєстрований">
+                                </div>
+                            </div>
+
+                            <h3 class="title">Кому Довіряють 3</h3>
+
+                            <div class="field">
+                                <div class="subtitle is-centered">
+                                    <label class="radio">
+                                        <input type="radio" name="human_4" value="a">
+                                        Присутній
+                                    </label>
+                                    <label class="radio">
+                                        <input type="radio" name="human_4" value="b" checked>
+                                        Відсутній
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="field">
+                                <div class="subtitle is-centered">
+                                    <label class="radio">
+                                        <input type="radio" name="gender_4" value="m" checked>
+                                        Чоловік
+                                    </label>
+                                    <label class="radio">
+                                        <input type="radio" name="gender_4" value="f">
+                                        Жінка
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="field">
+                                <div class="control">
+                                    <input class="input is-large" type="text" name="surname_Z4" id="surname_4Z"
+                                        placeholder="Прізвище в знахідному відмінку">
+                                </div>
+                            </div>
+
+                            <div class="field">
+                                <div class="control">
+                                    <input class="input is-large" type="text" name="name_Z4" id="name_4Z"
+                                        placeholder="Ім'я в знахідному відмінку">
+                                </div>
+                            </div>
+
+                            <div class="field">
+                                <div class="control">
+                                    <input class="input is-large" type="text" name="fatherName_Z4" id="fatherName_4Z"
+                                        placeholder="По-батькові в знахідному відмінку">
+                                </div>
+                            </div>
+
+                            <div class="field">
+                                <div><label class="subtitle">День народження</label></div>
+                                <div class="select is-rounded">
+                                    <select name="birthday_day4">
+                                        {% for i in range(1, 32) %}
+                                        {%if i in smallNumbers %}
+                                        <option value="0{{ i }}">0{{ i }}</option>
+                                        {% else %}
+                                        <option value="{{ i }}">{{ i }}</option>
+                                        {% endif %}
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                                <div class="select is-rounded">
+                                    <select name="birthday_month4">
+                                        {% for i in months %}
+                                        <option value="{{ i }}">{{ i }}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                                <div class="select is-rounded">
+                                    <select name="birthday_year4">
+                                        {% for i in range(1940, 2025) %}
+                                        <option value="{{ i }}">{{ i }}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="field">
+                                <div class="control">
+                                    <input class="input is-large" type="text" name="origin_4"
+                                        placeholder="Де зареєстрований">
+                                </div>
+                            </div>
+
+
+                            <!--------------------------------------------------------------------------->
+                            <h3 class="title">АВТОМОБІЛЬ</h3>
+
+                            <div class="field">
+                                <div class="control">
+                                    <input class="input is-large" type="text" name="avtoNomer_1"
+                                        placeholder="Реєстраційний номер">
+                                </div>
+                            </div>
+                            <div class="field">
+                                <div><label class="subtitle">Дата Реєстрації</label></div>
+                                <div class="select is-rounded">
+                                    <select name="reg_day">
+                                        {% for i in range(1, 32) %}
+                                        {%if i in smallNumbers %}
+                                        <option value="0{{ i }}">0{{ i }}</option>
+                                        {% else %}
+                                        <option value="{{ i }}">{{ i }}</option>
+                                        {% endif %}
+                                        {% endfor %}
+                                    </select>
+                                </div>
+
+                                <div class="select is-rounded">
+                                    <select name="reg_month">
+                                        {% for i in range(1, 13) %}
+                                        {%if i in smallNumbers %}
+                                        <option value="0{{ i }}">0{{ i }}</option>
+                                        {% else %}
+                                        <option value="{{ i }}">{{ i }}</option>
+                                        {% endif %}
+                                        {% endfor %}
+                                    </select>
+                                </div>
+
+                                <div class="select is-rounded">
+                                    <select name="reg_year">
+                                        {% for i in range(1990, 2025) %}
+                                        <option value="{{ i }}">{{ i }}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="field">
+                                <div><label class="subtitle">Дата Першої Реєстрації </label></div>
+
+                                <div class="field">
+                                    <div class="subtitle is-centered">
+                                        <label class="radio">
+                                            <input type="radio" name="ukReg_1" value="a" checked>
+                                            Реєстрація в Україні
+                                        </label>
+                                        <label class="radio">
+                                            <input type="radio" name="ukReg_1" value="b">
+                                            Загальна Реєстрація
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div class="select is-rounded">
+                                    <select name="firstReg_day">
+                                        {% for i in range(1, 32) %}
+                                        {%if i in smallNumbers %}
+                                        <option value="0{{ i }}">0{{ i }}</option>
+                                        {% else %}
+                                        <option value="{{ i }}">{{ i }}</option>
+                                        {% endif %}
+                                        {% endfor %}
+                                    </select>
+                                </div>
+
+                                <div class="select is-rounded">
+                                    <select name="firstReg_month">
+                                        {% for i in range(1, 13) %}
+                                        {%if i in smallNumbers %}
+                                        <option value="0{{ i }}">0{{ i }}</option>
+                                        {% else %}
+                                        <option value="{{ i }}">{{ i }}</option>
+                                        {% endif %}
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                                <div class="select is-rounded">
+                                    <select name="firstReg_year">
+                                        {% for i in range(1990, 2025) %}
+                                        <option value="{{ i }}">{{ i }}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                            </div>
+
+
+
+                            <div class="field">
+                                <div class="control">
+                                    <input class="input is-large" type="text" name="carYear_1"
+                                        placeholder="Рік Випуску">
+                                </div>
+                            </div>
+
+                            <div class="field">
+                                <div class="control">
+                                    <input class="input is-large" type="text" name="certificate_1"
+                                        placeholder="Номер Свідоцтва">
+                                </div>
+                            </div>
+
+                            <div class="field">
+                                <div class="control">
+                                    <input class="input is-large" type="text" name="TSC_1" placeholder="ТСЦ">
+                                </div>
+                            </div>
+
+                            <div class="field">
+                                <div class="control">
+                                    <input class="input is-large" type="text" name="marka_1" placeholder="Марка">
+                                </div>
+                            </div>
+
+                            <div class="field">
+                                <div class="control">
+                                    <input class="input is-large" type="text" name="model_1"
+                                        placeholder="Комерційний Опис">
+                                </div>
+                            </div>
+
+                            <div class="field">
+                                <div class="control">
+                                    <input class="input is-large" type="text" name="identity_1"
+                                        placeholder="Ідентифікаційний Номер">
+                                </div>
+                            </div>
+
+                            <div class="field">
+                                <div class="control">
+                                    <input class="input is-large" type="text" name="colour_1"
+                                        placeholder="Якого Кольору">
+                                </div>
+                            </div>
+
+                            <div class="field">
+                                <div class="control">
+                                    <input class="input is-large" type="text" name="type_1"
+                                        placeholder="Особливі Відмітки">
+                                </div>
+                            </div>
+
+                            <!--------------------------------------------------------------------------->
+                            <h3 class="title">Дата договору</h3>
+                            <h3 class="subtitle">Дата договору письмово</h3>
+
+                            <div class="field">
+                                <div class="select is-rounded">
+                                    <select name="time_day2">
+                                        {% for i in days %}
+                                        <option value="{{ i }}">{{ i }}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                                <div class="select is-rounded">
+                                    <select name="time_month2">
+                                        {% for i in months %}
+                                        <option value="{{ i }}">{{ i }}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="fiel">
+                                <div class="select is-rounded">
+                                    <select name="time_year2">
+                                        {% for i in years %}
+                                        <option value="дві тисячі {{ i }}">дві тисячі {{ i }}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="field">
+                                <div class="subtitle is-centered">
+                                    <label class="radio">
+                                        <input type="radio" name="pravo_1" value="y" checked>
+                                        З Правом
+                                    </label>
+                                    <label class="radio">
+                                        <input type="radio" name="pravo_1" value="n">
+                                        Без Права
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="field">
+                                <div class="subtitle is-centered">
+                                    <label class="radio">
+                                        <input type="radio" name="strok_1" value="a" checked>
+                                        Зі Строком
+                                    </label>
+                                    <label class="radio">
+                                        <input type="radio" name="strok_1" value="b">
+                                        Без Строку
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="field">
+                                <div class="control">
+                                    <input class="input is-large" type="text" name="duration_1"
+                                        placeholder="Строком на">
+                                </div>
+                            </div>
+                            <h3 class="subtitle">До</h3>
+
+                            <div class="field">
+                                <div class="select is-rounded">
+                                    <select name="time_day3">
+                                        {% for i in days2 %}
+                                        <option value="{{ i }}">{{ i }}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                                <div class="select is-rounded">
+                                    <select name="time_month3">
+                                        {% for i in months %}
+                                        <option value="{{ i }}">{{ i }}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="field">
+                                <div class="select is-rounded">
+                                    <select name="time_year3">
+                                        {% for i in years %}
+                                        <option value="дві тисячі {{ i }}">дві тисячі {{ i }}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                            </div>
+
+                            <br>
+                            <div class="field">
+                                <button class="button is-block is-info is-large is-fullwidth">Надіслати</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
